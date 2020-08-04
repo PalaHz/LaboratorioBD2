@@ -1,3 +1,4 @@
+//Export de todas las dependencia necesarias
 const express = require ('express');
 const morgan = require ('morgan');
 const exphbs = require ('express-handlebars');
@@ -29,7 +30,8 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.use(require('./routes'))
+app.use(require('./routes'));
+
 //public
 app.use(express.static(path.join(__dirname, 'public')));
 

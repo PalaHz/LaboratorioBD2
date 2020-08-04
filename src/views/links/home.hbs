@@ -1,0 +1,183 @@
+{{!-- Funciones para descargar los archivos --}}
+
+<script>
+    function getAfectadosCSV() {
+        window.location = "http://localhost:4000/afectadosCSV";
+    }
+    async function getAfectados() {
+        await fetch("http://localhost:4000/afectados")
+            .then((response) => {
+                return response.json();
+            })
+            .then((myJson) => {
+                console.log(myJson, 'hola');
+                var filename = "afectados.json";
+                var contentType = "application/json;charset=utf-8;";
+                if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                    var blob = new Blob(
+                        [
+                            decodeURIComponent(
+                                encodeURI(JSON.stringify(myJson, null, "\t"))
+                            ),
+                        ],
+                        { type: contentType }
+                    );
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                } else {
+                    var a = document.createElement("a");
+                    a.download = filename;
+                    a.href =
+                        "data:" +
+                        contentType +
+                        "," +
+                        encodeURIComponent(JSON.stringify(myJson));
+                    a.target = "_blank";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            });
+    }
+    function getEmpleadoresCSV() {
+        window.location = "http://localhost:4000/empleadoresCSV";
+    }
+    async function getEmpleadores() {
+        await fetch("http://localhost:4000/empleadores")
+            .then((response) => {
+                return response.json();
+            })
+            .then((myJson) => {
+                console.log(myJson, 'hola');
+                var filename = "empleadores.json";
+                var contentType = "application/json;charset=utf-8;";
+                if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                    var blob = new Blob(
+                        [
+                            decodeURIComponent(
+                                encodeURI(JSON.stringify(myJson, null, "\t"))
+                            ),
+                        ],
+                        { type: contentType }
+                    );
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                } else {
+                    var a = document.createElement("a");
+                    a.download = filename;
+                    a.href =
+                        "data:" +
+                        contentType +
+                        "," +
+                        encodeURIComponent(JSON.stringify(myJson));
+                    a.target = "_blank";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            });
+    }
+    function getProfesionesCSV() {
+        window.location = "http://localhost:4000/profesionesCSV";
+    }
+    async function getProfesiones() {
+        await fetch("http://localhost:4000/profesiones")
+            .then((response) => {
+                return response.json();
+            })
+            .then((myJson) => {
+                console.log(myJson, 'hola');
+                var filename = "profesiones.json";
+                var contentType = "application/json;charset=utf-8;";
+                if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                    var blob = new Blob(
+                        [
+                            decodeURIComponent(
+                                encodeURI(JSON.stringify(myJson, null, "\t"))
+                            ),
+                        ],
+                        { type: contentType }
+                    );
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                } else {
+                    var a = document.createElement("a");
+                    a.download = filename;
+                    a.href =
+                        "data:" +
+                        contentType +
+                        "," +
+                        encodeURIComponent(JSON.stringify(myJson));
+                    a.target = "_blank";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            });
+    }
+</script>
+
+{{!-- Contenido de la Pagina --}}
+
+<div class="svg-container">
+    <svg viewbox="0 240 800 400" class="svg">
+      <path id="curve" fill="#50c6d8" d="M 800 300 Q 400 350 0 300 L 0 0 L 800 0 L 800 300 Z">
+      </path>
+    </svg>
+  </div>
+
+  <header>
+    <h1>Datos de los afectados en la pandemia 2020.</h1>
+    <h3>Para descargar haga clic en algun recuadro</h3>
+  </header>
+
+<div class="container p-6">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h3 style="text-align: center; color: gray">
+                        Afectados
+                    </h3>
+                    <div class="button button1" onclick="getAfectadosCSV()">
+                        Descargar datos de los afectados CSV
+                    </div>
+                    <div class="button button1" onclick="getAfectados()">
+                        Descargar datos de los afectados JSON
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h3 style="text-align: center; color:darkblue">
+                        Empleadores
+                    </h3>
+                    <div class="button button2" onclick="getEmpleadoresCSV()">
+                        Descargar datos de los empleadores CSV
+                    </div>
+                    <div class="button button2" onclick="getEmpleadores()">
+                        Descargar datos de los empleadores JSON
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h3 style="text-align: center; color:darkgoldenrod">
+                        Profesiones
+                    </h3>
+                    <div class="button button3" onclick="getProfesionesCSV()">
+                        Descargar datos de las profesiones CSV
+                    </div>
+                    <div class="button button3" onclick="getProfesiones()">
+                        Descargar datos de las profesiones JSON
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
