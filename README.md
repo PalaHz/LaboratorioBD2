@@ -9,6 +9,7 @@
 # Código
 Para el desarrollo de esta API se ha trabajado con JavaScript con el framework Node.js donde tenemos las funciones principales para la conexión y desarrollo del laboratorio y además con HTML y express-handlebars para el desarrollo de la interfaz y poder descargar los archivos.
 Para la conversión del resultado de la petición a la base de datos de JSON a CSV se usó un módulo de uso libre llamado json-2-csv.
+El proyecto sigue la estructura estandar para Node.js y express, se divide la parte del codigo principal cen index.js, la conexión a la base datos dentro de datbse.js y keys.js, el desarrollo de la interfaz en la carpeta views con main.js y home.js y el manejo de las rutas para las peticiones en la carpeta routes con links.js.
 # Petición para obtener la información de la base de datos
 ``` javascript
 router.get('/afectados', (req, res) => {
