@@ -1,0 +1,74 @@
+@import 'https://fonts.googleapis.com/css?family=Ubuntu:300, 400, 500, 700';
+
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+}
+
+.svg-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+svg {
+  path {
+    transition: .1s;
+  }
+
+  &:hover path {
+    d: path("M 800 300 Q 400 250 0 300 L 0 0 L 800 0 L 800 300 Z");
+  }
+}
+header {
+  color: #fff;
+  padding-top: 2vw;
+  padding-bottom: 5vw;
+  text-align: center;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 25px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+  }
+  
+  .button1:hover {
+    background-color: #555555;
+    color: white;
+  }
+  .button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid darkblue;
+  }
+  
+  .button2:hover {
+    background-color: darkblue;
+    color: white;
+  }
+  .button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid darkgoldenrod;
+  }
+  
+  .button3:hover {
+    background-color: darkgoldenrod;
+    color: white;
+  }
